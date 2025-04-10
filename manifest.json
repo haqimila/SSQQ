@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "双色球分析助手",
+  "version": "1.0",
+  "description": "分析双色球历史数据，提供连号分析等功能",
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://www.cwl.gov.cn/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["xlsx.full.min.js"],
+    "matches": ["<all_urls>"]
+  }]
+} 

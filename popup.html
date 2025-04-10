@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>双色球分析助手</title>
+  <style>
+    body {
+      width: 480px;
+      padding: 20px;
+      font-family: 'Microsoft YaHei', sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+    }
+
+    h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e74c3c;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e74c3c;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .result {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      color: #2c3e50;
+    }
+
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    /* 自定义滚动条 */
+    .result::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .result::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .result::-webkit-scrollbar-thumb {
+      background: #e74c3c;
+      border-radius: 4px;
+    }
+
+    .result::-webkit-scrollbar-thumb:hover {
+      background: #c0392b;
+    }
+
+    /* 分析结果样式 */
+    .analysis-header {
+      color: #2c3e50;
+      margin: 15px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .analysis-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .stat-item {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .stat-label {
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+
+    .stat-value {
+      color: #e74c3c;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* 激活状态的按钮样式 */
+    button.active {
+      background-color: #2c3e50;
+      transform: translateY(1px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    /* 禁用状态的按钮样式 */
+    button:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>双色球分析助手</h2>
+  <div class="button-group">
+    <button id="fetchData">获取最新数据</button>
+    <button id="analyzeData">连号分析</button>
+    <button id="exportExcel">导出Excel</button>
+    <button id="analyzeHot">热门号码</button>
+    <button id="analyzeMissing">遗漏分析</button>
+    <button id="analyzeRatio">奇偶比例</button>
+  </div>
+  <div class="result" id="result"></div>
+  <script src="xlsx.full.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html> 
